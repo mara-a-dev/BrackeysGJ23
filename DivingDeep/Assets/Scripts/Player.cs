@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
     private bool groundedPlayer;
     private float playerSpeed = 15.0f;
     private float jumpHeight = 1.0f;
-    private float gravityValue = -9f;
+    private float gravityValue = -900f;
     private Animator anim;
     private Vector3 lastPos;
     private bool isUnderWater = false;
@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     {
         controller = gameObject.AddComponent<CharacterController>();
         anim = GetComponent<Animator>();
-        this.GetComponent<Rigidbody>().freezeRotation = true;
+        // this.GetComponent<Rigidbody>().freezeRotation = true;
     }
 
     void Update()
@@ -64,8 +64,7 @@ public class Player : MonoBehaviour
         {
             anim.SetBool("walk", false);
             anim.SetBool("dive", true);
-            isUnderWater = true;
-            gravityValue = 0;
+            SetUnderwater(true);
         }
 
         /*// Changes the height position of the player..
@@ -76,6 +75,7 @@ public class Player : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+       // transform.rotation = Quaternion.Euler(0, 90, 0);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -84,5 +84,11 @@ public class Player : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
+    }
+
+    public void SetUnderwater(bool status)
+    {
+        isUnderWater = status;
+        gravityValue = 0;
     }
 }
