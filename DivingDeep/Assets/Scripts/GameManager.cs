@@ -48,4 +48,9 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private void OnDestroy()
+    {
+        Player.OnItemCollected -= CollectedItem;
+    }
+
 }
