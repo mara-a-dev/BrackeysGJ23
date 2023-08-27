@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static event Action<Item.Types> OnItemCollected;
+ 
     private CharacterController controller;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
@@ -78,11 +81,26 @@ public class Player : MonoBehaviour
        // transform.rotation = Quaternion.Euler(0, 90, 0);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Key"))
+        if (collision.gameObject.CompareTag("Coin"))
         {
             Destroy(collision.gameObject);
+            OnItemCollected?.Invoke(Item.Types.coin);
+        }
+        if (collision.gameObject.CompareTag("Trash"))
+        {
+            Destroy(collision.gameObject);
+            OnItemCollected?.Invoke(Item.Types.trash);
+        }
+        if (collision.gameObject.CompareTag("Treasure"))
+        {
+            Destroy(collision.gameObject);
+            OnItemCollected?.Invoke(Item.Types.trash);
+        }
+        if (collision.gameObject.CompareTag("Bubble"))
+        {
+            OnItemCollected?.Invoke(Item.Types.trash);
         }
     }
 

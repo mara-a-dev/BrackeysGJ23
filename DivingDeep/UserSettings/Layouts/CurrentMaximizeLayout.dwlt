@@ -433,9 +433,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1317.5275, y: -427.1279, z: -221.51312}
+    m_Target: {x: 160.24023, y: -378.33218, z: -215.10477}
     speed: 2
-    m_Value: {x: 1317.5275, y: -427.1279, z: -221.51312}
+    m_Value: {x: 160.24023, y: -378.33218, z: -215.10477}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -482,13 +482,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.081282705, y: 0.7145664, z: -0.084212095, w: -0.6897091}
+    m_Target: {x: -0.082826614, y: 0.6926098, z: -0.08057151, w: -0.7119963}
     speed: 2
-    m_Value: {x: -0.08128261, y: 0.7145656, z: -0.084212, w: -0.6897083}
+    m_Value: {x: -0.08282665, y: 0.69261014, z: -0.08057155, w: -0.7119967}
   m_Size:
-    m_Target: 617.1199
+    m_Target: 703.95276
     speed: 2
-    m_Value: 617.1199
+    m_Value: 703.95276
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -728,10 +728,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 87}
-      m_SelectedIDs: da23fdff901efdff221bfdffd418fdffda32f9ffaa27fdffb828fdff
-      m_LastClickedID: -186184
-      m_ExpandedIDs: aa39f9ff5a7efaff64d0fbff08fffbff7054fcffb055fcff06fdfcff5c11fdffa47dfdff0082fdff5e89fdff0690fdff86b7fdff44cefdffa2fbfdff8e29feff602ffeff7812ffff7c12ffff8c12ffff9012ffffb412ffffb812ffffc812ffffcc12ffffd412ffffe412ffffe812fffff012fffff412fffff812ffff0013ffff0813ffff1413ffff1813ffff2013ffff2413ffff2c13ffff3013ffff3813ffff3c13ffff4413ffff4813ffff4c13ffff5813ffff5c13ffff6013ffff6813ffff7413ffff7813ffff8013ffff8413ffff8c13ffff9013ffff9813ffff9c13ffffa413ffffa813ffffac13ffffb813ffffbc13ffffc013ffffc813ffffd013ffffd413ffffd813ffffdc13ffffe413ffffe813fffff413ffff7e74ffff16fbffff6e5c0000d65c0000f65c0000
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 6e5c0000
+      m_LastClickedID: 23662
+      m_ExpandedIDs: 2cf8f8ffaa39f9ff5a7efaff64d0fbff7054fcffb055fcff06fdfcff5c11fdffa47dfdff0082fdff5e89fdff0690fdff86b7fdff44cefdffa2fbfdff8e29feff602ffeff7812ffff7c12ffff8c12ffff9012ffffb412ffffb812ffffc812ffffcc12ffffd412ffffe412ffffe812fffff012fffff412fffff812ffff0013ffff0813ffff1413ffff1813ffff2013ffff2413ffff2c13ffff3013ffff3813ffff3c13ffff4413ffff4813ffff4c13ffff5813ffff5c13ffff6013ffff6813ffff7413ffff7813ffff8013ffff8413ffff8c13ffff9013ffff9813ffff9c13ffffa413ffffa813ffffac13ffffb813ffffbc13ffffc013ffffc813ffffd013ffffd413ffffd813ffffdc13ffffe413ffffe813fffff413ffff7e74ffff16fbfffff65c0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -823,21 +823,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/UI
+    - Assets/Scripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/UI
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\GitHub\BrackeysGJ23\DivingDeep
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 0c600000
-    m_LastClickedID: 24588
+    m_SelectedIDs: 08600000
+    m_LastClickedID: 24584
     m_ExpandedIDs: 00000000ca5f0000cc5f0000ce5f000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -891,8 +891,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: da23fdff901efdff221bfdffd418fdffda32f9ffaa27fdffb828fdff
-    m_LastClickedInstanceID: -187430
+    m_SelectedInstanceIDs: 6e5c0000
+    m_LastClickedInstanceID: 23662
     m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c0910000386f0000227400001e630000c2be0000665f0000f48000003022000090620000f06e0000dc6000006c6000008e6000005c5d00001e3d01001eca0000ae540100485b010000000000f85f0000bc720200c6720200c81d0200
     m_RenameOverlay:
@@ -941,8 +941,8 @@ MonoBehaviour:
     y: 0
     width: 376
     height: 947
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
