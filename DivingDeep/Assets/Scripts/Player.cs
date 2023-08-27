@@ -2,11 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     public static event Action<Item.Types> OnItemCollected;
- 
+    public static event Action OnTimeEnding;
+
+    public Slider BreathingSlider;
     private CharacterController controller;
     private Vector3 playerVelocity;
     private bool groundedPlayer;
@@ -78,7 +81,7 @@ public class Player : MonoBehaviour
 
         playerVelocity.y += gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
-       // transform.rotation = Quaternion.Euler(0, 90, 0);
+        // transform.rotation = Quaternion.Euler(0, 90, 0);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -90,6 +93,7 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Trash"))
         {
+
             Destroy(collision.gameObject);
             OnItemCollected?.Invoke(Item.Types.trash);
         }
@@ -100,7 +104,8 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Bubble"))
         {
-            OnItemCollected?.Invoke(Item.Types.trash);
+            OnItemCollected?.Invoke(Item.Types.bubble);
+            ResetBreathing();
         }
     }
 
@@ -108,5 +113,39 @@ public class Player : MonoBehaviour
     {
         isUnderWater = status;
         gravityValue = 0;
+        StartCoroutine(LerpBreathing());
+    }
+
+    private void ResetBreathing()
+    {
+        StopAllCoroutines();
+        StartCoroutine(LerpBreathing());
+    }
+
+    private IEnumerator LerpBreathing()
+    {
+        float progress = 0;
+        float duration = 0.005f;
+        float startValue = BreathingSlider.maxValue;
+        float endValue = BreathingSlider.minValue;
+
+        BreathingSlider.value = startValue;
+
+        while (BreathingSlider.value > endValue)
+        {
+            if (BreathingSlider.value < BreathingSlider.minValue + 1)
+                OnTimeEnding?.Invoke();
+
+            BreathingSlider.value -= duration * Time.deltaTime;
+
+            if (BreathingSlider.value <= BreathingSlider.minValue)
+            {
+                GameManager.Instance.GameOver();
+                yield break;
+            }
+            yield return null;
+        }
+        BreathingSlider.value = endValue;
+        yield break;
     }
 }

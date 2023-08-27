@@ -7,6 +7,6 @@ public class Item : MonoBehaviour
     [System.Serializable]
     public enum Types
     {
-        coin, trash, treasure
+        coin, trash, treasure, bubble
     }
 }

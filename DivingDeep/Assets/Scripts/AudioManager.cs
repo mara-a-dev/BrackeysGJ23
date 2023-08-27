@@ -8,9 +8,13 @@ public class AudioManager : MonoBehaviour
     public AudioSource TrashSound;
     public AudioSource TreasureSound;
 
+    public AudioSource BubbleSound;
+    public AudioSource ClockSound;
+
     private void Awake()
     {
         Player.OnItemCollected += PlaySound;
+        Player.OnTimeEnding += PlayClockSound;
     }
 
     private void PlaySound(Item.Types item)
@@ -27,11 +31,23 @@ public class AudioManager : MonoBehaviour
         {
             TreasureSound.Play();
         }
+        if (item == Item.Types.bubble)
+        {
+            BubbleSound.Play();
+        }
 
     }
+
+    private void PlayClockSound()
+    {
+        ClockSound.Play();
+    }
+
+
 
     private void OnDestroy()
     {
         Player.OnItemCollected -= PlaySound;
+        Player.OnTimeEnding -= PlayClockSound;
     }
 }
