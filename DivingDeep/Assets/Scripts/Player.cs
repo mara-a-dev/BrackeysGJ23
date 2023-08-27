@@ -9,6 +9,9 @@ public class Player : MonoBehaviour
     public static event Action<Item.Types> OnItemCollected;
     public static event Action OnTimeEnding;
 
+    public GameObject Bubbles;
+    public GameObject JumpText;
+
     public Slider BreathingSlider;
     private CharacterController controller;
     private Vector3 playerVelocity;
@@ -86,6 +89,11 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.CompareTag("Jump"))
+        {
+            JumpText.SetActive(true);
+        }
+
         if (collision.gameObject.CompareTag("Coin"))
         {
             Destroy(collision.gameObject);
@@ -109,11 +117,20 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Jump"))
+        {
+            JumpText.SetActive(false);
+        }
+    }
+
     public void SetUnderwater(bool status)
     {
         isUnderWater = status;
         gravityValue = 0;
         StartCoroutine(LerpBreathing());
+        Bubbles.SetActive(true);
     }
 
     private void ResetBreathing()
@@ -125,7 +142,7 @@ public class Player : MonoBehaviour
     private IEnumerator LerpBreathing()
     {
         float progress = 0;
-        float duration = 0.005f;
+        float duration = 0.009f;
         float startValue = BreathingSlider.maxValue;
         float endValue = BreathingSlider.minValue;
 
