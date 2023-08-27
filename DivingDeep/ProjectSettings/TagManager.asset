@@ -8,6 +8,7 @@ TagManager:
   - Trash
   - Treasure
   - Bubble
+  - Jump
   layers:
   - Default
   - TransparentFX
