@@ -45,7 +45,11 @@ public class GameManager : MonoBehaviour
             treasure++;
             TreasureText.text = treasure.ToString();
         }
+    }
 
+    public void GameOver()
+    {
+        Debug.Log("-----GAME OVER-----");
     }
 
     private void OnDestroy()
