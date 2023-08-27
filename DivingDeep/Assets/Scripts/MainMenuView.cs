@@ -9,6 +9,11 @@ public class MainMenuView : MonoBehaviour
         SceneManager.LoadScene("Main");
     }
 
+    public void GoToMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
     public void ExitGame()
     {
         Application.Quit();
