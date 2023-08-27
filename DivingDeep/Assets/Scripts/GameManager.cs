@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI TrashText;
     public TextMeshProUGUI TreasureText;
 
+    public Transform GameOverScreen;
+    public Transform WinningScreen;
+
     private int coin = 0;
     private int trash = 0;
     private int treasure = 0;
@@ -25,8 +28,11 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
 
+        GameOverScreen.gameObject.SetActive(false);
+        WinningScreen.gameObject.SetActive(false);
         Player.OnItemCollected += CollectedItem;
     }
+
 
     private void CollectedItem(Item.Types item)
     {
@@ -39,6 +45,9 @@ public class GameManager : MonoBehaviour
         {
             trash++;
             TrashText.text = trash.ToString();
+
+            if (trash == 50)
+                YouWon();
         }
         if (item == Item.Types.treasure)
         {
@@ -49,7 +58,13 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        GameOverScreen.gameObject.SetActive(true);
         Debug.Log("-----GAME OVER-----");
+    }
+    public void YouWon()
+    {
+        WinningScreen.gameObject.SetActive(true);
+        Debug.Log("-----You Won-----");
     }
 
     private void OnDestroy()
