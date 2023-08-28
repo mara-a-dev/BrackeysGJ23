@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     private bool groundedPlayer;
     private float playerSpeed = 15.0f;
     private float jumpHeight = 1.0f;
-    private float gravityValue = -900f;
+    private float gravityValue = -50f;
     private Animator anim;
     private Vector3 lastPos;
     private bool isUnderWater = false;
@@ -73,7 +73,8 @@ public class Player : MonoBehaviour
         {
             anim.SetBool("walk", false);
             anim.SetBool("dive", true);
-            SetUnderwater(true);
+            if (!isUnderWater)
+                Invoke("SetUnderwater",0.25f);
         }
 
         /*// Changes the height position of the player..
@@ -108,7 +109,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Treasure"))
         {
             Destroy(collision.gameObject);
-            OnItemCollected?.Invoke(Item.Types.trash);
+            OnItemCollected?.Invoke(Item.Types.treasure);
         }
         if (collision.gameObject.CompareTag("Bubble"))
         {
@@ -125,9 +126,9 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void SetUnderwater(bool status)
+    public void SetUnderwater()
     {
-        isUnderWater = status;
+        isUnderWater = true;
         gravityValue = 0;
         StartCoroutine(LerpBreathing());
         Bubbles.SetActive(true);
@@ -150,13 +151,11 @@ public class Player : MonoBehaviour
 
         while (BreathingSlider.value > endValue)
         {
-            if (BreathingSlider.value < BreathingSlider.minValue + 1)
-                OnTimeEnding?.Invoke();
-
             BreathingSlider.value -= duration * Time.deltaTime;
 
             if (BreathingSlider.value <= BreathingSlider.minValue)
             {
+                OnTimeEnding?.Invoke();
                 GameManager.Instance.GameOver();
                 yield break;
             }
