@@ -36,15 +36,11 @@ ScriptsOnlyBuild:
     Unity.Timeline.Editor.dll:
     - TimelinePreferences
     - UnityEditor.Timeline.SequenceHierarchy
-    - UnityEditor.Timeline.TimelineWindow
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
-    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -220,11 +216,11 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 8406}
     - Class: 114
-      Script: {instanceID: 29466}
+      Script: {instanceID: 29444}
     - Class: 114
-      Script: {instanceID: 29482}
+      Script: {instanceID: 29460}
     - Class: 114
-      Script: {instanceID: 29516}
+      Script: {instanceID: 29494}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
