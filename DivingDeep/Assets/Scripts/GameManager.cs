@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
             trash++;
             TrashText.text = trash.ToString();
 
-            if (trash == 25)
+            if (trash == 50)
                 YouWon();
         }
         if (item == Item.Types.treasure)

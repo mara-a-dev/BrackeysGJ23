@@ -43,8 +43,6 @@ public class AudioManager : MonoBehaviour
         ClockSound.Play();
     }
 
-
-
     private void OnDestroy()
     {
         Player.OnItemCollected -= PlaySound;
